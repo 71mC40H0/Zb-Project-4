@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class FeignConfig {
+
     @Value(value = "${mailgun.api.key}")
     private String mailgunKey;
 

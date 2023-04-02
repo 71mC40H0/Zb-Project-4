@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Builder
 public class SendEmailForm {
+
     private String from;
     private String to;
     private String subject;
