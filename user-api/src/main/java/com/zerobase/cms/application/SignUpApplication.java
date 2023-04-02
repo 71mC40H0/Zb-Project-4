@@ -4,9 +4,11 @@ import com.zerobase.cms.client.MailgunClient;
 import com.zerobase.cms.client.mailgun.SendEmailForm;
 import com.zerobase.cms.domain.SignUpForm;
 import com.zerobase.cms.domain.model.Customer;
+import com.zerobase.cms.domain.model.Seller;
 import com.zerobase.cms.exception.CustomException;
 import com.zerobase.cms.exception.ErrorCode;
-import com.zerobase.cms.service.SignUpCustomerService;
+import com.zerobase.cms.service.customer.SignUpCustomerService;
+import com.zerobase.cms.service.seller.SignUpSellerService;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ public class SignUpApplication {
 
     private final MailgunClient mailgunClient;
     private final SignUpCustomerService signUpCustomerService;
+    private final SignUpSellerService signUpSellerService;
+
 
     public void customerVerify(String email, String code) {
         signUpCustomerService.verifyEmail(email, code);
@@ -27,17 +31,40 @@ public class SignUpApplication {
             throw new CustomException(ErrorCode.ALREADY_REGISTERED_USER);
         } else {
             Customer customer = signUpCustomerService.signUp(form);
-            String from = "chk7119@gmail.com";
 
             String code = getRandomCode();
             SendEmailForm sendEmailForm = SendEmailForm.builder()
-                .from(from)
+                .from("chk7119@gmail.com")
                 .to(form.getEmail())
                 .subject("Verification Email!")
-                .text(getVeriicationEmailBody(customer.getEmail(), customer.getName(), code))
+                .text(getVeriicationEmailBody(customer.getEmail(), customer.getName(), "customer",
+                    code))
                 .build();
             mailgunClient.sendEmail(sendEmailForm);
             signUpCustomerService.changeCustomerValidateEmail(customer.getId(), code);
+            return "회원 가입에 성공하였습니다.";
+        }
+    }
+
+    public void sellerVerify(String email, String code) {
+        signUpSellerService.verifyEmail(email, code);
+    }
+
+    public String sellerSignUp(SignUpForm form) {
+        if (signUpSellerService.isEmailExist(form.getEmail())) {
+            throw new CustomException(ErrorCode.ALREADY_REGISTERED_USER);
+        } else {
+            Seller seller = signUpSellerService.signUp(form);
+
+            String code = getRandomCode();
+            SendEmailForm sendEmailForm = SendEmailForm.builder()
+                .from("chk7119@gmail.com")
+                .to(form.getEmail())
+                .subject("Verification Email!")
+                .text(getVeriicationEmailBody(seller.getEmail(), seller.getName(), "seller", code))
+                .build();
+            mailgunClient.sendEmail(sendEmailForm);
+            signUpSellerService.changeSellerValidateEmail(seller.getId(), code);
             return "회원 가입에 성공하였습니다.";
         }
     }
@@ -46,11 +73,13 @@ public class SignUpApplication {
         return RandomStringUtils.random(10, true, true);
     }
 
-    private String getVeriicationEmailBody(String email, String name, String code) {
+    private String getVeriicationEmailBody(String email, String name, String type, String code) {
         StringBuilder builder = new StringBuilder();
         return builder.append("Hello ").append(name)
             .append("! Please Click Link for verification\n\n")
-            .append("https://localhost:8081/signup/customer/verify?email=")
+            .append("http://localhost:8081/signup/")
+            .append(type)
+            .append("/verify/?email=")
             .append(email)
             .append("&code=")
             .append(code).toString();

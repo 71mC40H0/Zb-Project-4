@@ -16,6 +16,7 @@ import com.zerobase.cms.domain.model.Customer;
 import com.zerobase.cms.domain.repository.CustomerRepository;
 import com.zerobase.cms.exception.CustomException;
 import com.zerobase.cms.exception.ErrorCode;
+import com.zerobase.cms.service.customer.SignUpCustomerService;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.zerobase.cms.service;
+package com.zerobase.cms.service.customer;
 
 
 import static com.zerobase.cms.exception.ErrorCode.ALREADY_VERIFIED;
