@@ -37,7 +37,6 @@ public class Seller extends BaseEntity {
     private String password;
     private LocalDate birth;
     private String phone;
-    private Integer balance;
     private LocalDateTime verifyExpiredAt;
     private String verificationCode;
     private boolean verify;
