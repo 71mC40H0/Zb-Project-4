@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SignInController {
 
     private final SignInApplication signInApplication;
+
     @PostMapping("/customer")
     public ResponseEntity<String> loginCustomer(@RequestBody SignInForm form) {
         return ResponseEntity.ok(signInApplication.customerLoginToken(form));
