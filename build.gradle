@@ -26,6 +26,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	testImplementation 'com.h2database:h2'
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'

@@ -1,7 +1,10 @@
 package com.zerobase.cms.service;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import com.zerobase.cms.client.MailgunClient;
 import com.zerobase.cms.client.mailgun.SendEmailForm;
+import java.util.Objects;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +14,7 @@ class SendEmailTest {
 
     @Autowired
     private MailgunClient mailgunClient;
-    
+
     @Test
     void testSendEmail() {
         //given
@@ -23,9 +26,9 @@ class SendEmailTest {
             .build();
 
         //when
-        String content = mailgunClient.sendEmail(form).getBody();
+        String response = mailgunClient.sendEmail(form).getBody();
 
         //then
-        System.out.println(content);
+        assertTrue(Objects.requireNonNull(response).contains("Queued. Thank you."));
     }
 }
