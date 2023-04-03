@@ -52,7 +52,7 @@ Content-Type: application/json
 }
 
 ### 이메일 인증 (셀러)
-PUT http://localhost:8081/signUp/seller/verify?email=mozamp2020@gmail.com&code=W9Sv7sbcZN
+PUT http://localhost:8081/signUp/seller/verify?email=mozamp2020@gmail.com&code=eKA2be7ihu
 Content-Type: application/json
 
 ### 로그인 (셀러)
@@ -67,5 +67,4 @@ Content-Type: application/json
 ### 회원정보 조회 (셀러)
 GET http://localhost:8081/seller/getInfo
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0a3V2aVVaS1VzS2NWOWRaY0R5SDVqZmFqKzlFaDRTWWJ4YXJ5aHdiZXYwPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwNDc2Mzg1LCJleHAiOjE2ODA1NjI3ODV9.4hLXlQ-2ti5CmkFdKvkKCST0KUFQY0jaaDjrfo7kidE
-
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0a3V2aVVaS1VzS2NWOWRaY0R5SDVqZmFqKzlFaDRTWWJ4YXJ5aHdiZXYwPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwNTE2NjI5LCJleHAiOjE2ODA2MDMwMjl9.jg6IkPyqL9GOfqsRZsaN6fdRiVWjzOwDgfGAxLhggxQ

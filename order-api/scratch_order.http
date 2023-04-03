@@ -1,0 +1,29 @@
+### 상품 등록
+POST http://localhost:8082/seller/product
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0a3V2aVVaS1VzS2NWOWRaY0R5SDVqZmFqKzlFaDRTWWJ4YXJ5aHdiZXYwPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwNTE5MTA5LCJleHAiOjE2ODA2MDU1MDl9.fdBxBOL_-akSW-mqvc0jO32oDZcRgLSszIz7M7t3WtM
+Content-Type: application/json
+
+{
+  "description": "상품입니다.",
+  "items": [
+    {
+      "count": 1,
+      "name": "아이템 1",
+      "price": 100000
+    }
+  ],
+  "name": "상품명"
+}
+
+### 상품 아이템 추가
+POST http://localhost:8082/seller/product/item
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0a3V2aVVaS1VzS2NWOWRaY0R5SDVqZmFqKzlFaDRTWWJ4YXJ5aHdiZXYwPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwNTE5MTA5LCJleHAiOjE2ODA2MDU1MDl9.fdBxBOL_-akSW-mqvc0jO32oDZcRgLSszIz7M7t3WtM
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "count": 1,
+  "name": "추가 item 2",
+  "price": 10000
+
+}
