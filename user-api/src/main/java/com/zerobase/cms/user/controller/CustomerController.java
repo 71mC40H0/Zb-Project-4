@@ -4,9 +4,9 @@ import com.zerobase.cms.user.domain.customer.ChangeBalanceForm;
 import com.zerobase.cms.user.domain.customer.CustomerDto;
 import com.zerobase.cms.user.domain.model.Customer;
 import com.zerobase.cms.user.exception.CustomException;
+import com.zerobase.cms.user.exception.ErrorCode;
 import com.zerobase.cms.user.service.customer.CustomerBalanceService;
 import com.zerobase.cms.user.service.customer.CustomerService;
-import com.zerobase.cms.user.exception.ErrorCode;
 import com.zerobase.domain.common.UserVo;
 import com.zerobase.domain.config.JwtAuthenticationProvider;
 import lombok.RequiredArgsConstructor;
@@ -39,9 +39,10 @@ public class CustomerController {
 
     @PutMapping("/balance")
     public ResponseEntity<Integer> changeBalance(@RequestHeader(name = "X-AUTH-TOKEN") String token,
-                                                @RequestBody ChangeBalanceForm form) {
+        @RequestBody ChangeBalanceForm form) {
 
         UserVo vo = provider.getUserVo(token);
-        return ResponseEntity.ok(customerBalanceService.changeBalance(vo.getId(), form).getCurrentMoney());
+        return ResponseEntity.ok(
+            customerBalanceService.changeBalance(vo.getId(), form).getCurrentMoney());
     }
 }
