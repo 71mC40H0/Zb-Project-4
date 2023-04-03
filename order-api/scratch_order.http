@@ -8,7 +8,7 @@ Content-Type: application/json
   "items": [
     {
       "count": 1,
-      "name": "아이템 1",
+      "name": "기본 아이템",
       "price": 100000
     }
   ],
@@ -23,7 +23,38 @@ Content-Type: application/json
 {
   "productId": 1,
   "count": 1,
-  "name": "추가 item 2",
+  "name": "추가 item",
   "price": 10000
 
+}
+
+### 상품 수정
+PUT http://localhost:8082/seller/product
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0a3V2aVVaS1VzS2NWOWRaY0R5SDVqZmFqKzlFaDRTWWJ4YXJ5aHdiZXYwPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwNTE5MTA5LCJleHAiOjE2ODA2MDU1MDl9.fdBxBOL_-akSW-mqvc0jO32oDZcRgLSszIz7M7t3WtM
+Content-Type: application/json
+
+{
+  "description": "수정된 상품입니다.",
+  "items": [
+    {
+      "id": 1,
+      "count": 10,
+      "name": "기본 아이템 수정",
+      "price": 500000
+    }
+  ],
+  "id" : 1,
+  "name": "상품명 수정"
+}
+
+### 상품 아이템 수정
+PUT http://localhost:8082/seller/product/item
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0a3V2aVVaS1VzS2NWOWRaY0R5SDVqZmFqKzlFaDRTWWJ4YXJ5aHdiZXYwPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwNTE5MTA5LCJleHAiOjE2ODA2MDU1MDl9.fdBxBOL_-akSW-mqvc0jO32oDZcRgLSszIz7M7t3WtM
+Content-Type: application/json
+
+{
+  "id": 2,
+  "count": 7,
+  "name": "수정 item",
+  "price": 70000
 }
