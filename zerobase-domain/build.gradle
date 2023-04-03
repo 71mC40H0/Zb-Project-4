@@ -7,7 +7,7 @@ plugins {
 bootJar.enabled = false
 jar.enabled = true
 
-group = 'com.zerobase'
+group = 'com.zerobase.cms'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
