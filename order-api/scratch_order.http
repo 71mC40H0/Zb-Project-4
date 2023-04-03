@@ -1,4 +1,4 @@
-### 상품 등록
+### 상품 추가
 POST http://localhost:8082/seller/product
 X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0a3V2aVVaS1VzS2NWOWRaY0R5SDVqZmFqKzlFaDRTWWJ4YXJ5aHdiZXYwPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwNTE5MTA5LCJleHAiOjE2ODA2MDU1MDl9.fdBxBOL_-akSW-mqvc0jO32oDZcRgLSszIz7M7t3WtM
 Content-Type: application/json
@@ -58,3 +58,14 @@ Content-Type: application/json
   "name": "수정 item",
   "price": 70000
 }
+
+### 상품 삭제
+DELETE http://localhost:8082/seller/product/?id=1
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0a3V2aVVaS1VzS2NWOWRaY0R5SDVqZmFqKzlFaDRTWWJ4YXJ5aHdiZXYwPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwNTE5MTA5LCJleHAiOjE2ODA2MDU1MDl9.fdBxBOL_-akSW-mqvc0jO32oDZcRgLSszIz7M7t3WtM
+Content-Type: application/json
+
+
+### 상품 아이템 삭제
+DELETE http://localhost:8082/seller/product/item?id=4
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0a3V2aVVaS1VzS2NWOWRaY0R5SDVqZmFqKzlFaDRTWWJ4YXJ5aHdiZXYwPSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjgwNTE5MTA5LCJleHAiOjE2ODA2MDU1MDl9.fdBxBOL_-akSW-mqvc0jO32oDZcRgLSszIz7M7t3WtM
+Content-Type: application/json
