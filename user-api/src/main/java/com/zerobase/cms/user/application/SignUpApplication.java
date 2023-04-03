@@ -79,7 +79,7 @@ public class SignUpApplication {
             .append("! Please Click Link for verification\n\n")
             .append("http://localhost:8081/signUp/")
             .append(type)
-            .append("/verify/?email=")
+            .append("/verify?email=")
             .append(email)
             .append("&code=")
             .append(code).toString();
